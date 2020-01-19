@@ -1,3 +1,16 @@
+
+const firstWord = 'a';
+
+const lastWord ='zxy';
+
+const dictionarySections = 3;
+
+const firstSectionPages = [16, 35];
+
+const secondSectionPages = [48, 72];
+
+const thirdSectionPages = [89, 108];
+
 const wordList = [
 	'a',
 	'b',
@@ -28,19 +41,27 @@ const wordList = [
 ];
 
 let position;
+
 let inputWord = 'test';
 
-for (let i = 0; i < wordList.length; i++) {
-	if (inputWord >= wordList[i]) {
-		if (inputWord > wordList[i]) {
-			position = i + 1;
-		} else {
-			position = i;
+if ((inputWord >= firstWord) && (inputWord <= lastWord)) {
+
+	for (let i = 0; i < wordList.length; i++) {
+		if (inputWord >= wordList[i]) {
+			if (inputWord > wordList[i]) {
+				position = i + 1;
+			} else {
+				position = i;
+			}
+		}
+		if (position > wordList.length) {
+			position = position - 1;
 		}
 	}
-	if (position > wordList.length) {
-		position = position - 1;
-	}
+
+	console.log(position, wordList[position]);
+
+} else {
+	console.log('No such word');
 }
 
-console.log(position, wordList[position]);
