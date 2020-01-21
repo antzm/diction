@@ -1,9 +1,31 @@
 
 const firstWord = 'a';
 
-const lastWord ='zxy';
+const lastWord = 'z';
 
-const dictionarySections = 3;
+// Some dictionaries cosist of only one main part.
+// while other dictionaries may have an appendix
+// in the middle of the dictionary, or in some 
+// cases, there may be two appendices, which split
+// the main part of the dictionary in 3 sections.
+
+// This variable takes a value of 1, 2 or 3
+// depending on how many sections the dictionary has.
+
+// We are interesting in the scections only if
+// the page numbers from one section to the next
+// are not continuous.
+// Othewise, if the numbering from one section
+// to the other is continous, regardless of the appendix
+// or the appendices between the sections,
+// then we would consider that the dictionary
+// consists of only one section.
+
+// Thus, the "dictionarySections" variable would
+// 2 or 3 only if the page numbering of those
+// sections is not continous.
+
+const dictionarySections = 2;
 
 const firstSectionPages = [16, 35];
 
@@ -59,7 +81,7 @@ if ((inputWord >= firstWord) && (inputWord <= lastWord)) {
 		}
 	}
 
-	console.log(position, wordList[position]);
+	console.log('position: ', position, 'word: ', wordList[position]);
 
 } else {
 	console.log('No such word');
