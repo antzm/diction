@@ -1,9 +1,5 @@
 
-const firstWord = 'a';
-
-const lastWord = 'z';
-
-// Some dictionaries cosist of only one main part.
+// Some dictionaries consist of only one main part.
 // while other dictionaries may have an appendix
 // in the middle of the dictionary, or in some 
 // cases, there may be two appendices, which split
@@ -44,7 +40,7 @@ const thirdSectionPages = [97, 115];
 // i.e. whenever a number, symbol or
 // characters in another language are 
 // entered as the input word.
-const firstLastWord = ['a', 'z'];
+const wordsRange = ['a', 'z'];
 
 
 // Using only the last word on every odd page
@@ -123,11 +119,31 @@ const wordList = [
 	'z'  // page 115
 ];
 
+// whenever "onlyOddPageNumbers = true",
+// the array "sectionsPageNumbers" should
+// contain only odd page numbers.
+// This function checks the array
+// and if there are even numbers in it,
+// it increases those numbers by 1,
+// so that all the numbers in the 
+// array will be odd numbers.
+function checkSectionNumbers() {
+	if (onlyOddPageNumbers = true) {
+		for (i = 0; i < sectionsPageNumbers.length; i++) {
+			for (j = 0; j < 2; j++) {
+				if (sectionsPageNumbers[i][j] % 2 === 0) {
+					sectionsPageNumbers[i][j] += 1;
+				}
+			}
+		}
+	}
+}
+
 let position;
 
 let inputWord = 'test';
 
-if ((inputWord >= firstWord) && (inputWord <= lastWord)) {
+if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
 
 	for (let i = 0; i < wordList.length; i++) {
 		if (inputWord >= wordList[i]) {
