@@ -119,6 +119,8 @@ const wordList = [
 	'z'  // page 115
 ];
 
+let inputWord = 'test';
+
 // whenever "onlyOddPageNumbers = true",
 // the array "sectionsPageNumbers" should
 // contain only odd page numbers.
@@ -139,12 +141,18 @@ function checkSectionNumbers() {
 	}
 }
 
-let position;
 
-let inputWord = 'test';
+function checkWordValidity() {
+	if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
+		wordSearch();
+	} else {
+		console.log('No such word');
+	}
+}
 
-if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
 
+function wordSearch() {
+	let position;
 	for (let i = 0; i < wordList.length; i++) {
 		if (inputWord >= wordList[i]) {
 			if (inputWord > wordList[i]) {
@@ -157,9 +165,5 @@ if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
 			position = position - 1;
 		}
 	}
-
 	console.log('position: ', position, 'word: ', wordList[position]);
-
-} else {
-	console.log('No such word');
 }
