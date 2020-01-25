@@ -1,4 +1,14 @@
 
+// tl;dr
+// The purpose of this code is to help you
+// locate an unknown word in any dictionary,
+// provided that you create first an array
+// with the basic structure of the dictionary.
+// After that, you enter an unknown word
+// and the code will return the page
+// of the dictionary where this word is located.
+
+
 // Some dictionaries consist of only one main part.
 // while other dictionaries may have an appendix
 // in the middle of the dictionary, or in some 
