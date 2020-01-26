@@ -2,11 +2,57 @@
 // tl;dr
 // The purpose of this code is to help you
 // locate an unknown word in any dictionary,
-// provided that you create first an array
+// provided that firstly you create an array
 // with the basic structure of the dictionary.
 // After that, you enter an unknown word
 // and the code will return the page
 // of the dictionary where this word is located.
+//
+// There are two approaches to bulid this array,
+// which will contain key words of the dictionary.
+// The easiest appproach is to take into consideration
+// only the odd pages of the dictionary and then,
+// to enter into an array one word from every odd page
+// of the dictionary, and to be precise, the last
+// word in every odd page. Thus, if the dictionary
+// has 1000 pages, then we will need only 500 words
+// to bulid this array.
+//
+// The second approach, is more time consuming
+// but it will return the exact page for each word.
+// In this approach, we need to enter into an array,
+// the last word in every page of the dictionary.
+// Thus, for a 1000 pages dictionary, we will 
+// need 1000 words.
+//
+// The first approach will give us the double page
+// where a word is located i.e. pages 168-169,
+// while the second approach will give us the exact
+// page where a word is located i.e. page 168.
+//
+// Obviously, the result is based only on the array
+// words and there's no guarntee that a certain word
+// will be included in the dictionary, but, provided
+// that a word is included in the dictionary, this
+// web-app will return the page (or the double page)
+// where this word is located.
+//
+// Besides the word array, the only other things
+// we need to change in this code are the following
+// variables:
+//
+// "wordsRange" array where we enter the very first
+// and the very last word of the dictionary.
+// 
+// "onlyOddPageNumbers" boolean which is "true"
+// if we use only the odd pages of the dictionary
+// and "false" if we use all the pages of the dictionary.
+//
+// "sectionsPageNumbers" array where we enter the first
+// and the last page number for every section of the
+// dictionary (either one continuous section or more
+// than, one sections which are separated by various
+// appendices).
 
 
 // Some dictionaries consist of only one main part.
