@@ -146,6 +146,9 @@ const sectionsPageNumbers = [
 	[97, 115] // third section
 ];
 
+
+// This array contains the selected
+// words form the dictionary.
 const wordList = [
 	'a', // page 17
 	'b', // ..
@@ -175,6 +178,11 @@ const wordList = [
 	'z'  // page 115
 ];
 
+// In this array, the pages of the dictionary,
+// which correspond to each word in the "WordList" array,
+// will be added.
+const = wordPages = [];
+
 let inputWord = 'test';
 
 // whenever "onlyOddPageNumbers = true",
@@ -197,7 +205,26 @@ function checkSectionNumbers() {
 	}
 }
 
+// This functions creates and adds the page
+// nubers of the dictionary in the array
+// "wordPages".
+function createPageNumbers() {
+	if (onlyOddPageNumbers = true) {
+		for (i = 0; i < sectionsPageNumbers.length; i++) {
+			range = sectionsPageNumbers[i][1] - sectionsPageNumbers[i][0];
+				for (j = wordPages.length; range; j++) {
+					wordPages[j] += sectionsPageNumbers[i][0];
+				}
+		}
+	} else {
 
+	}
+}
+
+// This function checks whether a word in contained
+// inside the dictionary, based on the first and the last
+// word of the dictionary, as have been entered in the
+// "wordsRange" array.
 function checkWordValidity() {
 	if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
 		wordSearch();
