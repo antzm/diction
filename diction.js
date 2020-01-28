@@ -44,46 +44,15 @@
 // "wordsRange" array where we enter the very first
 // and the very last word of the dictionary.
 // 
-// "onlyOddPageNumbers" boolean which is "true"
+// "onlyOddPages" boolean variable which is "true"
 // if we use only the odd pages of the dictionary
 // and "false" if we use all the pages of the dictionary.
 //
-// "sectionsPageNumbers" array where we enter the first
+// "sectionPages" array where we enter the first
 // and the last page number for every section of the
 // dictionary (either one continuous section or more
-// than, one sections which are separated by various
+// than one sections which are separated by various
 // appendices).
-
-
-// Some dictionaries consist of only one main part.
-// while other dictionaries may have an appendix
-// in the middle of the dictionary, or in some 
-// cases, there may be two appendices, which split
-// the main part of the dictionary in 3 sections.
-
-// This variable takes a value of 1, 2 or 3
-// depending on how many sections the dictionary has.
-
-// We are interesting in the scections only if
-// the page numbers from one section to the next
-// are not continuous.
-// Othewise, if the numbering from one section
-// to the other is continous, regardless of the appendix
-// or the appendices between the sections,
-// then we would consider that the dictionary
-// consists of only one section.
-
-// Thus, the "dictionarySections" variable would
-// 2 or 3 only if the page numbering of those
-// sections is not continous.
-
-const dictionarySections = 2;
-
-const firstSectionPages = [17, 29];
-
-const secondSectionPages = [37, 53];
-
-const thirdSectionPages = [97, 115];
 
 
 // This array contains the very first
@@ -119,6 +88,21 @@ const wordsRange = ['a', 'z'];
 const onlyOddPages = true;
 
 
+// Some dictionaries consist of only one main part,
+// while other dictionaries may have an appendix
+// in the middle of the dictionary, or in some 
+// cases, there may be two appendices, or more, that split
+// the main part of the dictionary in 3 or more sections.
+//
+// We are interesting in those scections only if
+// the page numbers from one section to the next
+// are not continuous.
+// Othewise, if the numbering from one section
+// to the other is continous, regardless of the appendix
+// or the appendices between the sections,
+// then we would consider that the dictionary
+// consists of only one section.
+//
 // This array contains the page numbers
 // for each section of the dictionary.
 // If the dictionary has only 1 section,
@@ -131,15 +115,16 @@ const onlyOddPages = true;
 // are used, this array should include
 // only odd page numbers.
 // i.e. whenever the variable
-// "onlyOddPageNumbers = true"
+// "onlyOddPages = true"
 // the array should include only
 // odd page numbers.
 // As an example, if a section starts
 // at page 16 and ends at page 104 it
-// should be included as [17, 105]
-// Otherwise if the variable 
-// "onlyOddPageNumbers = false", then
-// it may contain both odd and even numbers.
+// should be included as [17, 105].
+// On the other hand, if the variable 
+// "onlyOddPages = false", then
+// the array may contain both
+// odd and even page numbers.
 const sectionPages = [
 	[17, 29], // first section
 	[37, 53], // second section
@@ -188,7 +173,8 @@ let inputWord = 'test';
 checkSectionNumbers();
 createPageNumbers();
 
-// whenever "onlyOddPageNumbers = true",
+
+// Whenever "onlyOddPageNumbers = true",
 // the array "sectionsPageNumbers" should
 // contain only odd page numbers.
 // This function checks the array
@@ -208,17 +194,23 @@ function checkSectionNumbers() {
 	}
 }
 
+
 // This functions creates and adds the page
-// nubers of the dictionary in the array
+// numbers of the dictionary in the array
 // "wordPages".
+// Based on the "sectionPages" array, 
+// and the "onlyOddPages" boolean variable,
+// it calculates and stores the dictionary
+// page numbers in the array "wordPages".
+// Thus, each page number in the array "wordPages"
+// corresponds to each word in the "wordsList" array.
+// i.e. the word "wordsList[18]" is on the page "wordPages[18]"
 function createPageNumbers() {
 	if (onlyOddPages === true) {
 		for (i = 0; i < sectionPages.length; i++) {
 			let range = sectionPages[i][1] - sectionPages[i][0];
 			for (j = 0; j < range + 1; j += 2) {
 				wordPages.push(j + sectionPages[i][0]);
-				console.log("i ,j, range: " + i, j, range);
-				console.log(wordPages);				
 			}
 		}
 	} else {
@@ -226,14 +218,13 @@ function createPageNumbers() {
 			let range = sectionPages[i][1] - sectionPages[i][0];
 			for (j = 0; j < range + 1; j++) {
 				wordPages.push(j + sectionPages[i][0]);
-				console.log("i ,j, range: " + i, j, range);
-				console.log(wordPages);				
 			}
 		}		
 	}
 }
 
-// This function checks whether a word in contained
+
+// This function checks whether a word is contained
 // inside the dictionary, based on the first and the last
 // word of the dictionary, as have been entered in the
 // "wordsRange" array.
