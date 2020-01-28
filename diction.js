@@ -116,7 +116,7 @@ const wordsRange = ['a', 'z'];
 // "onlyOddPageNumbers" needs to be set to "true" while
 // if both odd and even pages are used, this variable
 // should be set to "false".
-const onlyOddPageNumbers = true;
+const onlyOddPages = true;
 
 
 // This array contains the page numbers
@@ -140,7 +140,7 @@ const onlyOddPageNumbers = true;
 // Otherwise if the variable 
 // "onlyOddPageNumbers = false", then
 // it may contain both odd and even numbers.
-const sectionsPageNumbers = [
+const sectionPages = [
 	[17, 29], // first section
 	[37, 53], // second section
 	[97, 115] // third section
@@ -181,9 +181,12 @@ const wordList = [
 // In this array, the pages of the dictionary,
 // which correspond to each word in the "WordList" array,
 // will be added.
-const = wordPages = [];
+const wordPages = [];
 
 let inputWord = 'test';
+
+checkSectionNumbers();
+createPageNumbers();
 
 // whenever "onlyOddPageNumbers = true",
 // the array "sectionsPageNumbers" should
@@ -194,11 +197,11 @@ let inputWord = 'test';
 // so that all the numbers in the 
 // array will be odd numbers.
 function checkSectionNumbers() {
-	if (onlyOddPageNumbers = true) {
-		for (i = 0; i < sectionsPageNumbers.length; i++) {
+	if (onlyOddPages === true) {
+		for (i = 0; i < sectionPages.length; i++) {
 			for (j = 0; j < 2; j++) {
-				if (sectionsPageNumbers[i][j] % 2 === 0) {
-					sectionsPageNumbers[i][j] += 1;
+				if (sectionPages[i][j] % 2 === 0) {
+					sectionPages[i][j] += 1;
 				}
 			}
 		}
@@ -209,15 +212,24 @@ function checkSectionNumbers() {
 // nubers of the dictionary in the array
 // "wordPages".
 function createPageNumbers() {
-	if (onlyOddPageNumbers = true) {
-		for (i = 0; i < sectionsPageNumbers.length; i++) {
-			range = sectionsPageNumbers[i][1] - sectionsPageNumbers[i][0];
-				for (j = wordPages.length; range; j++) {
-					wordPages[j] += sectionsPageNumbers[i][0];
-				}
+	if (onlyOddPages === true) {
+		for (i = 0; i < sectionPages.length; i++) {
+			let range = sectionPages[i][1] - sectionPages[i][0];
+			for (j = 0; j < range + 1; j += 2) {
+				wordPages.push(j + sectionPages[i][0]);
+				console.log("i ,j, range: " + i, j, range);
+				console.log(wordPages);				
+			}
 		}
 	} else {
-
+		for (i = 0; i < sectionPages.length; i++) {
+			let range = sectionPages[i][1] - sectionPages[i][0];
+			for (j = 0; j < range + 1; j++) {
+				wordPages.push(j + sectionPages[i][0]);
+				console.log("i ,j, range: " + i, j, range);
+				console.log(wordPages);				
+			}
+		}		
 	}
 }
 
