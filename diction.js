@@ -224,6 +224,31 @@ function createPageNumbers() {
 }
 
 
+// This function is not part of the code.
+// It's purspose is to provide some neccesary
+// help while configuring the code to work
+// with a new array and a new set of variables.
+// It can be called in the cosole and if the
+// arrays are OK, then a combined array will
+// be loogged, otherwise a message will appear
+// mentioning that the arrays wordList and 
+// wordPages have different length, i.e. there's
+// probably a problem with either the wordList array,
+// or the sectionPages array and it sould be corrected.
+function compareArrays() {
+	if (wordList.length === wordPages.length) {
+		const combinedArray = [];
+		for (i=0; i< wordList.length; i++) {
+			combinedArray[i] = wordList[i] + " " + wordPages[i];
+		} 
+		console.log(combinedArray);
+	} else {
+		console.log('The arrays wordList and wordPages have different lengths');
+	}	
+}
+
+
+
 // This function checks whether a word is contained
 // inside the dictionary, based on the first and the last
 // word of the dictionary, as have been entered in the
