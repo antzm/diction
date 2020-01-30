@@ -236,17 +236,17 @@ function createPageNumbers() {
 // probably a problem with either the wordList array,
 // or the sectionPages array and it sould be corrected.
 function compareArrays() {
+	const combinedArray = [];
 	if (wordList.length === wordPages.length) {
-		const combinedArray = [];
 		for (i=0; i< wordList.length; i++) {
 			combinedArray[i] = wordList[i] + " " + wordPages[i];
 		} 
 		console.log(combinedArray);
+		console.log('Both arrays, wordList and wordPages, have the same length')
 	} else {
-		console.log('The arrays wordList and wordPages have different lengths');
+		console.log('Important note: The arrays wordList and wordPages have different lengths');
 	}	
 }
-
 
 
 // This function checks whether a word is contained
