@@ -238,14 +238,24 @@ function createPageNumbers() {
 function compareArrays() {
 	const combinedArray = [];
 	if (wordList.length === wordPages.length) {
-		for (i=0; i< wordList.length; i++) {
+		for (i = 0; i < wordList.length; i++) {
 			combinedArray[i] = wordList[i] + " " + wordPages[i];
 		} 
 		console.log(combinedArray);
-		console.log('Both arrays, wordList and wordPages, have the same length')
-	} else {
-		console.log('Important note: The arrays wordList and wordPages have different lengths');
-	}	
+		console.log('Both arrays, wordList and wordPages, have the SAME length')
+	}	else if (wordList.length > wordPages.length){
+			for (i = 0; i< wordList.length; i++) {
+				combinedArray[i] = wordList[i] + " " + wordPages[i];
+			} 
+			console.log(combinedArray);
+			console.log('Important note: The length of the array wordList is GREATER than the length of the array wordPages');
+	}	else {
+			for (i = 0; i < wordPages.length; i++) {
+			combinedArray[i] = wordList[i] + " " + wordPages[i];
+			} 
+			console.log(combinedArray);
+			console.log('Important note: The length of the array wordList is SHORTER than the length of the array wordPages');
+	}
 }
 
 
