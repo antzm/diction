@@ -228,13 +228,15 @@ function createPageNumbers() {
 // It's purspose is to provide some neccesary
 // help while configuring the code to work
 // with a new array and a new set of variables.
-// It can be called in the cosole and if the
-// arrays are OK, then a combined array will
-// be loogged, otherwise a message will appear
+// It can be called in the cosole and if both
+// arrays have the same length, then a combined array will
+// be logged, otherwise a message will appear
 // mentioning that the arrays wordList and 
 // wordPages have different length, i.e. there's
 // probably a problem with either the wordList array,
 // or the sectionPages array and it sould be corrected.
+// Also, when the arrays have different length, the longest
+// array is used to calculate the combinedArray.
 function compareArrays() {
 	const combinedArray = [];
 	if (wordList.length === wordPages.length) {
@@ -271,7 +273,13 @@ function checkWordValidity() {
 	}
 }
 
-
+// This function is used to search for a certain
+// word inside the dictionary (i.e. wordsList array)
+// and returns the number of page or the number of pages
+// corresponding to that word.
+// i.e. The page number is stored inside the wordPages array
+// so that each itemm in the wordsList array corresponds to the
+// correct item (i.e. the page) in the wordPages array.
 function wordSearch() {
 	let position;
 	for (let i = 0; i < wordList.length; i++) {
