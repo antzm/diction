@@ -172,7 +172,8 @@ let inputWord = 'test';
 
 checkSectionNumbers();
 createPageNumbers();
-
+checkWordValidity();
+wordSearch();
 
 // Whenever "onlyOddPageNumbers = true",
 // the array "sectionsPageNumbers" should
@@ -294,5 +295,5 @@ function wordSearch() {
 			position = position - 1;
 		}
 	}
-	console.log('position: ', position, 'word: ', wordList[position]);
+	console.log('position: ', position, 'word: ', wordList[position], 'page:, ', wordPages[position]);
 }
