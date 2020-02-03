@@ -224,7 +224,13 @@ function createPageNumbers() {
 	}
 }
 
-
+// This function checks whether the words
+// in the wordList array have been placed 
+// correctly in alphabetical order,
+// otherwise it prints a list
+// with the misplaced words.
+// The function is not part of the code
+// and is only used for debugging purposes.
 function checkWordsOrder() {
 	let wrongWords = [];
 	for (i = 0; i < wordList.length; i++) {
