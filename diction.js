@@ -173,7 +173,7 @@ let inputWord = 'test';
 checkSectionNumbers();
 createPageNumbers();
 checkWordValidity();
-wordSearch();
+
 
 // Whenever "onlyOddPageNumbers = true",
 // the array "sectionsPageNumbers" should
@@ -221,6 +221,22 @@ function createPageNumbers() {
 				wordPages.push(j + sectionPages[i][0]);
 			}
 		}		
+	}
+}
+
+
+function checkWordsOrder() {
+	let wrongWords = [];
+	for (i = 0; i < wordList.length; i++) {
+		if (wordList[i] >= wordList[i+1]) {
+			wrongWords.push(wordList[i+1]);
+		}
+	}
+	if (wrongWords.length === 0) {
+		console.log('The words are in alphabetical order');
+	} else {
+		console.log('The following words are not in alphabetical order');
+		console.log(wrongWords);
 	}
 }
 
