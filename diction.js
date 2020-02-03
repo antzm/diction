@@ -224,6 +224,21 @@ function createPageNumbers() {
 	}
 }
 
+// This array is used for debugging pursposes
+// to test whether the secions pages have
+// been given in the correct form and in
+// the correct order.
+function checkPageSections() {
+	for (i = 0; i < sectionPages.length; i++) {
+		let pageRange = sectionPages[i][1] - sectionPages[i][0];
+		if (pageRange <= 0) {
+			console.log('No pages in section: ', i+1);
+		}
+
+	}
+}
+
+
 // This function checks whether the words
 // in the wordList array have been placed 
 // correctly in alphabetical order,
@@ -292,7 +307,7 @@ function checkWordValidity() {
 	if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
 		wordSearch();
 	} else {
-		console.log('No such word');
+		console.log('This word is not included in the dictionary');
 	}
 }
 
