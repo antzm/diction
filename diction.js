@@ -229,13 +229,25 @@ function createPageNumbers() {
 // been given in the correct form and in
 // the correct order.
 function checkPageSections() {
+
 	for (i = 0; i < sectionPages.length; i++) {
 		let pageRange = sectionPages[i][1] - sectionPages[i][0];
 		if (pageRange <= 0) {
 			console.log('No pages in section: ', i+1);
+		} else {
+			console.log('Section pages look OK');
 		}
-
 	}
+
+	for (j = 0; j < sectionPages.length-1; j++) {
+		let sectionRange = sectionPages[j+1][0] - sectionPages[j][0];
+		if (sectionRange <= 0) {
+			console.log('This section is not in the correct order: ', j+2);
+		} else {
+			console.log('Section order looks OK');
+		}
+	}
+
 }
 
 
