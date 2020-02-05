@@ -255,14 +255,16 @@ function checkPageSections() {
 // in the wordList array have been placed 
 // correctly in alphabetical order,
 // otherwise it prints a list
-// with the misplaced words.
+// with the misplaced words and
+// also, the index in the original
+// array where those words are located.
 // The function is not part of the code
 // and is only used for debugging purposes.
 function checkWordsOrder() {
 	let wrongWords = [];
 	for (i = 0; i < wordList.length; i++) {
 		if (wordList[i] >= wordList[i+1]) {
-			wrongWords.push(wordList[i+1]);
+			wrongWords.push('item : ' + i + ' --> ' + wordList[i+1]);
 		}
 	}
 	if (wrongWords.length === 0) {
