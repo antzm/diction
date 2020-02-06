@@ -264,13 +264,13 @@ function checkWordsOrder() {
 	let wrongWords = [];
 	for (i = 0; i < wordList.length; i++) {
 		if (wordList[i] >= wordList[i+1]) {
-			wrongWords.push('item : ' + i + ' --> ' + wordList[i+1]);
+			wrongWords.push('index: ' + (i+1) + ' => ' + wordList[i+1]);
 		}
 	}
 	if (wrongWords.length === 0) {
 		console.log('The words are in alphabetical order');
 	} else {
-		console.log('The following words are not in alphabetical order');
+		console.log('The following words are not in alphabetical order:');
 		console.log(wrongWords);
 	}
 }
