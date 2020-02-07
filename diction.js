@@ -170,7 +170,20 @@ const wordPages = [];
 
 let inputWord = 'test';
 
-checkSectionNumbers();
+
+// The following 3 lines of code are used
+// only for debugging purposes and for this
+// reason they have been commented.
+// They may be called directly in the console,
+// or you may uncomment the following 3 lines
+// to use them while the code runs.
+//
+// checkPageSections();
+// checkWordsOrder();
+// compareArrays();
+
+
+updateSectionNumbers();
 createPageNumbers();
 checkWordValidity();
 
@@ -183,7 +196,7 @@ checkWordValidity();
 // it increases those numbers by 1,
 // so that all the numbers in the 
 // array will be odd numbers.
-function checkSectionNumbers() {
+function updateSectionNumbers() {
 	if (onlyOddPages === true) {
 		for (i = 0; i < sectionPages.length; i++) {
 			for (j = 0; j < 2; j++) {
@@ -224,7 +237,54 @@ function createPageNumbers() {
 	}
 }
 
-// This array is used for debugging pursposes
+
+// This function checks whether a word is contained
+// inside the dictionary, based on the first and the last
+// word of the dictionary, as have been entered in the
+// "wordsRange" array.
+function checkWordValidity() {
+	if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
+		wordSearch();
+	} else {
+		console.log('This word is not included in the dictionary');
+	}
+}
+
+
+// This function is used to search for a certain
+// word inside the dictionary (i.e. wordsList array)
+// and returns the number of page or the number of pages
+// corresponding to that word.
+// i.e. The page number is stored inside the wordPages array
+// so that each itemm in the wordsList array corresponds to the
+// correct item (i.e. the page) in the wordPages array.
+function wordSearch() {
+	let position;
+	for (let i = 0; i < wordList.length; i++) {
+		if (inputWord >= wordList[i]) {
+			if (inputWord > wordList[i]) {
+				position = i + 1;
+			} else {
+				position = i;
+			}
+		}
+		if (position > wordList.length) {
+			position = position - 1;
+		}
+	}
+	console.log('position: ', position, 'word: ', wordList[position], 'page:, ', wordPages[position]);
+}
+
+
+// *****************************************
+// *****************************************
+// The following functions are used only
+// for debugging purposes.
+// *****************************************
+// *****************************************
+
+
+// This function is used for debugging pursposes
 // to test whether the secions pages have
 // been given in the correct form and in
 // the correct order.
@@ -312,39 +372,3 @@ function compareArrays() {
 	}
 }
 
-
-// This function checks whether a word is contained
-// inside the dictionary, based on the first and the last
-// word of the dictionary, as have been entered in the
-// "wordsRange" array.
-function checkWordValidity() {
-	if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
-		wordSearch();
-	} else {
-		console.log('This word is not included in the dictionary');
-	}
-}
-
-// This function is used to search for a certain
-// word inside the dictionary (i.e. wordsList array)
-// and returns the number of page or the number of pages
-// corresponding to that word.
-// i.e. The page number is stored inside the wordPages array
-// so that each itemm in the wordsList array corresponds to the
-// correct item (i.e. the page) in the wordPages array.
-function wordSearch() {
-	let position;
-	for (let i = 0; i < wordList.length; i++) {
-		if (inputWord >= wordList[i]) {
-			if (inputWord > wordList[i]) {
-				position = i + 1;
-			} else {
-				position = i;
-			}
-		}
-		if (position > wordList.length) {
-			position = position - 1;
-		}
-	}
-	console.log('position: ', position, 'word: ', wordList[position], 'page:, ', wordPages[position]);
-}
