@@ -94,7 +94,7 @@ const onlyOddPages = true;
 // cases, there may be two appendices, or more, that split
 // the main part of the dictionary in 3 or more sections.
 //
-// We are interesting in those scections only if
+// We are interested in those scections only if
 // the page numbers from one section to the next
 // are not continuous.
 // Othewise, if the numbering from one section
@@ -188,11 +188,17 @@ createPageNumbers();
 checkWordValidity();
 
 
-// Whenever "onlyOddPageNumbers = true",
-// the array "sectionsPageNumbers" should
+// Whenever "onlyOddPages = true",
+// the array "sectionsPags" should
 // contain only odd page numbers.
 // This function checks the array
-// and if there are even numbers in it,
+// to verify that only odd page numbers
+// have been included, as it has been
+// mentioned in the comments refering to 
+// the "sectionPages" array.
+// In case there has been a mistace in 
+// the array, and it includes also even numbers,
+// then the following code checks that and then
 // it increases those numbers by 1,
 // so that all the numbers in the 
 // array will be odd numbers.
@@ -246,7 +252,7 @@ function checkWordValidity() {
 	if ((inputWord >= wordsRange[0]) && (inputWord <= wordsRange[1])) {
 		wordSearch();
 	} else {
-		console.log('This word is not included in the dictionary');
+		console.log('This word is not included in the dictionary.');
 	}
 }
 
@@ -371,4 +377,3 @@ function compareArrays() {
 			console.log('Important note: The length of the array wordList is SHORTER than the length of the array wordPages');
 	}
 }
-
